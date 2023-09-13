@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "functions2.h"
+#include "functionLib.h"
 
 void main()
 {
@@ -10,7 +11,7 @@ void main()
 	CreateArray(n, arr);
 	try {
 		SwapArray(n, arr);
-		Print(n, arr);
+		PrintFloat(n, arr);
 	}
 	catch (const char* ex) {
 		std::cout << ex;

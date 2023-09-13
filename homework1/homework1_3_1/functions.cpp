@@ -1,17 +1,6 @@
 #include "functions.h"
 #include <iostream>
 
-void CreateArray(int& n, int*& arr)
-{
-	std::cout << "Enter n \n";
-	std::cin >> n;
-	arr = new int[n];
-	std::cout << "Enter elements \n";
-	for (int i = 0; i < n; i++)
-	{
-		std::cin >> arr[i];
-	}
-};
 
 
 int FindMin(int n, int* arr)
@@ -74,11 +63,4 @@ int* RemoveRepeats(int sizeCount, int* count, int n, int* arr, int countUniqes, 
 	return result;
 }
 
-void Print(int n, int* arr)
-{
-	std::cout << "New array \n";
-	for (int i = 0; i < n; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-};
+

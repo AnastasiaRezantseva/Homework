@@ -1,14 +1,14 @@
 #include <iostream>
 #include <stdio.h>
 #include "functions.h"
-
+#include "functionLib.h"
 void main()
 {
 	int n;
 	int* arr = NULL;
 	int* count = NULL;
 	int* new_arr = NULL;
-	CreateArray(n, arr);
+	CreateArrayInt(n, arr);
 	try {
 		int min = FindMin(n, arr);
 		int max = FindMax(n, arr);
@@ -18,7 +18,7 @@ void main()
 		FillArrayByZero(SizeCountArray, count);
 		int resultCount = GetNumberOfUniques(n, arr, SizeCountArray, count, min);
 		new_arr = RemoveRepeats(SizeCountArray, count, n, arr, resultCount, min);
-		Print(resultCount, new_arr);
+		PrintInt(resultCount, new_arr);
 	}
 	catch (const char* ex) {
 		std::cout << ex;
