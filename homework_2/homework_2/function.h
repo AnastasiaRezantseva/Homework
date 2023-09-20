@@ -15,17 +15,17 @@ public:
 	// operations
 	TVector operator+(const TVector& vector);
 	TVector operator-(const TVector& vector);
-	TVector operator*(const TVector& vector);
+	float operator*(const TVector& vector);
 
-	TVector& operator=(const TVector& vector);
-	bool operator==(const TVector& vector);
-	bool operator!=(const TVector& vector);
+	const TVector& operator=(const TVector& vector);
+	bool operator==(const TVector& vector) const;
+	bool operator!=(const TVector& vector) const;
 
 	TVector& operator-=(const TVector& vector);
 	TVector& operator+=(const TVector& vector);
 	TVector& operator*=(const TVector& vector);
 
-	float scalarProduct(const TVector& vector);
+	//float scalarProduct(const TVector& vector);
 	float cosDistance(const TVector& vector);
 
 	float length() const;

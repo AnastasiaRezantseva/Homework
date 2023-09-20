@@ -71,7 +71,25 @@ TVector TVector::operator-(const TVector& vector) // покомпонентное вычитание
 		exit(1);
 	}
 }
-TVector TVector::operator*(const TVector& vector) {
+float TVector::operator*(const TVector& vector) {
+	try {
+
+		if (n != vector.n) {
+			throw "Cannot scalar multiply vectors with different dimensions!";
+		}
+		float sum = 0.f; 
+		for (int i = 0; i < n; i++)
+		{
+			sum += x[i] * vector.x[i];
+		}
+		return (sum) ;
+	}
+	catch (const char* ex) {
+		std::cout << ex;
+		exit(1);
+	}
+	
+	/*
 	try {
 
 		if (n != vector.n) {
@@ -87,10 +105,10 @@ TVector TVector::operator*(const TVector& vector) {
 	catch (const char* ex) {
 		std::cout << ex;
 		exit(1);
-	}
+	}*/
 }
 
-TVector& TVector::operator=(const TVector& vector) {
+const TVector& TVector::operator=(const TVector& vector) {
 	if ((*this) == vector) {
 		return *this;
 	}
@@ -105,7 +123,7 @@ TVector& TVector::operator=(const TVector& vector) {
 	return *this;
 }
 
-bool TVector::operator==(const TVector& vector) {
+bool TVector::operator==(const TVector& vector) const{
 	if (n != vector.n) {
 		return false;
 	}
@@ -119,7 +137,7 @@ bool TVector::operator==(const TVector& vector) {
 	return true;
 }
 
-bool TVector::operator!=(const TVector& vector) {
+bool TVector::operator!=(const TVector& vector) const{
 	return !((*this) == vector);
 }
 
@@ -201,7 +219,7 @@ float TVector::length() const {
 	}
 	return std::sqrt(sum);
 }
-
+/*
 float TVector::scalarProduct(const TVector& vector) {
 	try {
 
@@ -219,7 +237,7 @@ float TVector::scalarProduct(const TVector& vector) {
 		std::cout << ex;
 		exit(1);
 	}
-}
+}*/
 
 float TVector::cosDistance(const TVector& vector) {
 	try {
@@ -227,7 +245,8 @@ float TVector::cosDistance(const TVector& vector) {
 		if (n != vector.n) {
 			throw "Cannot find cos distance vectors with different dimensions!";
 		}
-		float sum = scalarProduct(vector);
+
+		float sum = operator*(vector);
 		float del = length() * vector.length();
 		return (sum / del);
 	}
