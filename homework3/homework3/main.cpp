@@ -5,7 +5,7 @@
 using namespace std;
 
 // C:\Users\Anastasiya\Desktop\Homework\homework3\homework3\Group.txt
-// C:\Users\ITMM-230042\Desktop\Homework\homework3\Group.txt
+// C:\Users\ITMM-230042\Desktop\Homework\homework3\homework3\Group.txt
 int main() {
 
 	// get path 
@@ -25,9 +25,9 @@ int main() {
 
 	 //removeByInitials
 			
-	std::cout << "Enter student's lastname, name and surname \n";
-	std::cin >> lastname >> name >> surname;
-	group.removeByInitials(lastname, name, surname);
+	std::cout << "Enter student's lastname \n";
+	std::cin >> lastname ;
+	group.removeByInitials(lastname);
 	group.printGroup();
 
 	//removeByPhone

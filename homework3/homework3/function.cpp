@@ -154,9 +154,9 @@ void Group::addStudent()
 }
 
 //delete by initials
-void Group::removeByInitials(const string& lastname, const string& name, const string& surname) //add name and surname 
+void Group::removeByInitials(const int* find, int size) //add name and surname 
 {
-	int id = findInitials(lastname, name, surname);
+	int id = findInitials(lastname);
 	if (id == -1)
 	{
 		return;
@@ -177,22 +177,31 @@ void Group::removeByInitials(const string& lastname, const string& name, const s
 
 }
 
-int Group::findInitials(const string& lastname, const string& name, const string& surname)
+int* Group::findInitials(const string& lastname)
 {
-	int id = -1;
-	for (int i = 0; i < count; i++) 
+	int size = 0;
+	for (int i = 0; i < size; i++)
 	{
-		if ((students[i].Lastname == lastname) && (students[i].Name == name) && (students[i].Surname == surname))
+		if ((students[i].Lastname == lastname))
 		{
-			 id = i;
-			 break;
+			size++;
 		}
 	}
-	if (id == -1)
+	int* find = new int[size];
+	int nid=0;
+	for (int j = 0; j < count; j++)
+	{
+		if ((students[j].Lastname == lastname))
+		{
+			find[nid] = j;
+			nid++;
+		}
+	}
+	if (size == 0)
 	{
 		std::cout << "Student with this initials not found\n";
 	}
-	return id;
+	return find;
 }
 
 // delete be phone number

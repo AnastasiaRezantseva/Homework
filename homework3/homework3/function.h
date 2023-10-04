@@ -57,11 +57,11 @@ public:
 
 	void addStudent();
 
-	void removeByInitials(const string& lastname, const string& name, const string& surname);
+	void removeByInitials(const int* find, int size);
 	void removeByPhone(const string& phone);
 
 	int findPhone(const string& phone);
-	int findInitials(const string& lastname, const string& name, const string& surname);
+	int* findInitials(const string& lastname);
 
 	friend std::istream& operator>>(std::istream& in, Student& new_student);
 	friend std::ostream& operator<<(std::ostream& out, const Student& new_student);
