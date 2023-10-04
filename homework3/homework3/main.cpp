@@ -5,6 +5,7 @@
 using namespace std;
 
 // C:\Users\Anastasiya\Desktop\Homework\homework3\homework3\Group.txt
+// C:\Users\ITMM-230042\Desktop\Homework\homework3\Group.txt
 int main() {
 
 	// get path 
